@@ -1,4 +1,3 @@
-// Smooth scroll for nav links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', e => {
     e.preventDefault();
@@ -6,7 +5,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     document.querySelector(anchor.getAttribute('href'))
       .scrollIntoView({ behavior: 'smooth' });
     
-    // Auto-close menu on mobile after clicking a link
     const navMenu = document.querySelector('nav ul');
     const menuToggle = document.getElementById('menu-toggle');
     if (navMenu.classList.contains('active')) {
@@ -16,7 +14,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
-// Mobile hamburger toggle
 const menuToggle = document.getElementById('menu-toggle');
 const navMenu = document.querySelector('nav ul');
 
@@ -25,14 +22,13 @@ menuToggle.addEventListener('click', () => {
   navMenu.classList.toggle('active');
 });
 
-// Scroll reveal animation
 function reveal() {
   const reveals = document.querySelectorAll('.reveal');
 
   for (let i = 0; i < reveals.length; i++) {
     const windowHeight = window.innerHeight;
     const revealTop = reveals[i].getBoundingClientRect().top;
-    const revealPoint = 100; // how early to trigger
+    const revealPoint = 100;
 
     if (revealTop < windowHeight - revealPoint) {
       reveals[i].classList.add('active');
@@ -43,4 +39,4 @@ function reveal() {
 }
 
 window.addEventListener('scroll', reveal);
-reveal(); // run once on load
+reveal();
